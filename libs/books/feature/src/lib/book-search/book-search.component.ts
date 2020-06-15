@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {
   addToReadingList,
@@ -15,8 +15,10 @@ import { Book } from '@tmo/shared/models';
   templateUrl: './book-search.component.html',
   styleUrls: ['./book-search.component.scss']
 })
-export class BookSearchComponent implements OnInit {
+export class BookSearchComponent implements OnInit, OnDestroy {
   books: ReadingListBook[];
+
+  private searchThrottleTimeout: ReturnType<typeof setTimeout>;
 
   searchForm = this.fb.group({
     term: ''
@@ -35,6 +37,21 @@ export class BookSearchComponent implements OnInit {
     this.store.select(getAllBooks).subscribe(books => {
       this.books = books;
     });
+    this.addSearchOnType();
+  }
+
+  ngOnDestroy(): void {
+    clearTimeout(this.searchThrottleTimeout);
+  }
+
+  addSearchOnType(): void {
+    const self = this;
+    this.searchForm.controls.term.valueChanges.subscribe(value => {
+      clearTimeout(self.searchThrottleTimeout);
+      self.searchThrottleTimeout = setTimeout(() => {
+        self.searchBooks();
+      }, 500);
+    })
   }
 
   formatDate(date: void | string) {
