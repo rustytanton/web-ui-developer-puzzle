@@ -1,4 +1,4 @@
-import { $, $$, browser, ExpectedConditions, element } from 'protractor';
+import { $, $$, browser, ExpectedConditions } from 'protractor';
 import { expect } from 'chai';
 
 describe('When: Use the search feature', () => {
