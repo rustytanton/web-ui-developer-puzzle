@@ -28,6 +28,8 @@ And some is unfamiliar:
 
 One fundamental improvement I would make would be to localize strings in this app [following practices described in Angular's documention](https://angular.io/guide/i18n). As the app was built with lots of English string fragments dropped directly into the templates and no annotation/translation, it would be a significant amount of work to make it usable for non-English-speaking audiences.
 
+A second improvement I'd is the e2e test runner is not set up to be very DRY right now. It could use a sprint 0 to make some common UI interactions reusable in multiple tests (examples: submit a search to a form, open the reading list, etc).
+
 ## Issues
 
 - `npm install` noted 11 security vulnerabilities (3 high/8 low). The high severity issues and 1 low severity issue were fixed easily by running `npm audit fix`, leaving 7 low severity prototype pollution issues all from the `yargs-parser` package. Some [online research](https://stackoverflow.com/questions/61535702/prototype-pollution-npm-vulnerability-cant-be-fixed) led me to determine this is a known issue that only effects development environments, and that I shouldn't spend further time on it during this exercise.
