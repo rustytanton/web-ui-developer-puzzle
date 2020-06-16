@@ -28,7 +28,7 @@ And some is unfamiliar:
 
 One fundamental improvement I would make would be to localize strings in this app [following practices described in Angular's documention](https://angular.io/guide/i18n). As the app was built with lots of English string fragments dropped directly into the templates and no annotation/translation, it would be a significant amount of work to make it usable for non-English-speaking audiences.
 
-A second improvement I'd is the e2e test runner is not set up to be very DRY right now. It could use a sprint 0 to make some common UI interactions reusable in multiple tests (examples: submit a search to a form, open the reading list, etc).
+A second improvement I'd make is the e2e test runner is not set up to be very DRY right now. It could use a sprint 0 to make some common UI interactions reusable in multiple tests (examples: submit a search to a form, open the reading list, etc).
 
 ## Issues
 
