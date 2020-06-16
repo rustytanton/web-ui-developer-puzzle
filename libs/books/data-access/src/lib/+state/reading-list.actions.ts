@@ -41,3 +41,18 @@ export const confirmedRemoveFromReadingList = createAction(
   '[Reading List] Confirmed remove from list',
   props<{ item: ReadingListItem }>()
 );
+
+export const markItemFinished = createAction(
+  '[Reading List] Mark reading list item finished',
+  props<{ item: ReadingListItem }>()
+);
+
+export const confirmMarkItemFinished = createAction(
+  '[Reading List] Confirm mark reading list item finished',
+  props<{ item: ReadingListItem }>()
+);
+
+export const failedMarkItemFinished = createAction(
+  '[Reading List] Failed mark reading list item finished',
+  props<{ item: ReadingListItem }>()
+);

@@ -18,6 +18,26 @@
       >
         <mat-icon>remove_circle</mat-icon>
       </button>
+      <button
+        mat-icon-button
+        [attr.aria-label]="'Mark ' + b.title + ' read'"
+        (click)="markItemFinished(b)"
+        color="primary"
+        *ngIf="!b.finished"
+        data-testing="mark-item-finished"
+      >
+        <mat-icon>check_circle_outline</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        [attr.aria-label]="'Mark ' + b.title + ' unread'"
+        *ngIf="b.finished"
+        color="primary"
+        disabled
+        data-testing="mark-item-unread"
+      >
+        <mat-icon>check_circle</mat-icon>
+      </button>
     </div>
   </div>
 </ng-container>
