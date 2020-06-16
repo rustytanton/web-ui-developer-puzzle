@@ -36,7 +36,7 @@
               color="primary"
               (click)="addBookToReadingList(b)"
               [disabled]="b.isAdded"
-              data-testing="book-item-add"
+              [attr.data-testing]="b.isAdded ? 'book-item-remove' : 'book-item-add'"
             >
               Want to Read
             </button>

@@ -49,7 +49,7 @@ export class BookSearchComponent implements OnInit {
   addBookToReadingList(book: Book) {
     this.store.dispatch(addToReadingList({ book }));
     const snackbarRef: MatSnackBarRef<SimpleSnackBar> =
-      this.snackBar.open(`You added ${book.title} to your reading list.`, 'Undo', { duration: 5000 });
+      this.snackBar.open(`You added ${book.title} to your reading list.`, 'Undo');
     const self: BookSearchComponent = this;
     snackbarRef.onAction().subscribe(() => {
       self.store.dispatch(removeFromReadingList({ item: {
